@@ -1,11 +1,14 @@
-name: hello-world workflows
+name: hellow-world
+
 on:
-  push:
+  push: 
     branches:
-      - Featurebranch/ramadevi
+    - 'Featurebranch/ramadevi'
+
 jobs:
-  job1:
-    run-on: ubuntu-latest
+  hello:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: echo hellow-world
-        run: echo "helow world"
+     - name: hello
+       run:  echo "hello world"
