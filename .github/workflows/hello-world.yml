@@ -1,8 +1,8 @@
 name: hello-world workflows
 on:
-push:
-  branches:
-    - Featurebranch/ramadevi
+  push:
+    branches:
+      - Featurebranch/ramadevi
 jobs:
   job1:
   run-on: ubuntu-latest
