@@ -1,17 +1,13 @@
-name: build1
-
-on:
-  push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
-
+name: demo
+on: push
 jobs:
-  build:
+ job1:
+   runs-on: ubuntu-latest
+   steps:
+     - name: display the echo command
+       run:this is sample one\
+  example_matrix:
     runs-on: ubuntu-latest
+    strategy: 
+      version: [10, 12, 14]
 
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Run a one-line script
-        run: echo Hello from build1
