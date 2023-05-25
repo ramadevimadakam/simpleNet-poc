@@ -5,7 +5,7 @@ on:
       - Featurebranch/ramadevi
 jobs:
   job1:
-  run-on: ubuntu-latest
-  steps:
-    - name: echo hellow-world
-      run: echo "helow world"
+    run-on: ubuntu-latest
+    steps:
+      - name: echo hellow-world
+        run: echo "helow world"
