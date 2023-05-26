@@ -1,0 +1,48 @@
+name: Continuous Integration and Deployment
+
+on:
+  push:
+    branches:
+      - feature-web
+
+env:
+  DOTNET_VERSION: '5.0.x'
+  AZURE_WEBAPP_NAME: rainers-first-webapp
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      
+      - name: Setup .NET 5 
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+     
+      - name: Restore dependencies
+        run: dotnet restore
+      
+      - name: Build app
+        #run: dotnet restore
+        run: dotnet build -c Release --no-restore
+
+      
+      - name: Publish app
+        run: dotnet publish -c Release -o ./out
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: published-app
+          path: ./out
+          
+      - name: Download-artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: published-app
+          path: ./downloaded-app
+       
+
+     
