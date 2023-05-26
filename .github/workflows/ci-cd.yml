@@ -33,6 +33,7 @@ jobs:
      #   run: dotnet restore
       
       - name: Build app
+        run: dotnet restore
         run: dotnet build -c Release --no-restore
 
       - name: Run automated tests
