@@ -1,0 +1,38 @@
+name: Matrixstrategy
+
+on: 
+  push:
+    branches: 
+      - Featurebranch/ramadevi
+jobs:
+  build1:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run Hello world on ubuntu-latest
+      run: echo "Hello world"
+
+  build2:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run github actions on macos
+      run: echo "github"
+
+  build3:
+    runs-on: windows-latest
+    steps:
+     - uses: actions/checkout@v3
+     - name: Run dotnet program
+       run: echo "dotnet program"
+
+  build4:
+     runs-on: windows-latest
+     strategy:
+       matrix:
+         version: [10, 12, 14]
+    
+     steps:
+     - uses: actions/setup-node@v3
+     - name: node version ${{matrix.version}}
+       run: echo "hello"
